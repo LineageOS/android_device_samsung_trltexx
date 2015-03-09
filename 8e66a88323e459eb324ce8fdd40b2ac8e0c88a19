@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad45d7e_88d8611f",
+        "filename": "init/init_trlte.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 167
+      },
+      "writtenOn": "2015-03-09T04:14:13Z",
+      "side": 1,
+      "message": "you can fix this part too, not a big deal.",
+      "revId": "8e66a88323e459eb324ce8fdd40b2ac8e0c88a19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad45d7e_a8dba51a",
+        "filename": "init/init_trlte.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 167
+      },
+      "writtenOn": "2015-03-09T04:14:13Z",
+      "side": 1,
+      "message": "shouldn\u0027t ro.product.device be trltedt ?",
+      "revId": "8e66a88323e459eb324ce8fdd40b2ac8e0c88a19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
