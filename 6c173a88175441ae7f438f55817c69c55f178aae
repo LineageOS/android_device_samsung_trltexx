@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ff73747_3104787b",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-07-09T04:10:53Z",
+      "side": 1,
+      "message": "This can probably go to the common proprietary-files listing.",
+      "revId": "6c173a88175441ae7f438f55817c69c55f178aae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
