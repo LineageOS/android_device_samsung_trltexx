@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_46b647dc",
+        "filename": "ril/telephony/java/com/android/internal/telephony/trlteRIL.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 6334
+      },
+      "writtenOn": "2016-03-20T01:28:58Z",
+      "side": 1,
+      "message": "unneccesary logic change. (same result)",
+      "revId": "dff1de69fd221fc3670b31a8b5b08ad2168af425",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
