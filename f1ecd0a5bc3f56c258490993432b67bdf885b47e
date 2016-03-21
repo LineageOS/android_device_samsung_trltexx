@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_5788331e",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4557
+      },
+      "writtenOn": "2016-03-21T18:28:20Z",
+      "side": 1,
+      "message": "at least for the US variants, the location.apk is not compatible and we have been removing it",
+      "revId": "f1ecd0a5bc3f56c258490993432b67bdf885b47e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_f77cbf21",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4557
+      },
+      "writtenOn": "2016-03-21T18:28:20Z",
+      "side": 1,
+      "message": "if these files are truly not found in the latest firmware and are not confirmed necessary for the device, remove the lines instead of commenting them and saying that they\u0027re not found",
+      "revId": "f1ecd0a5bc3f56c258490993432b67bdf885b47e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
