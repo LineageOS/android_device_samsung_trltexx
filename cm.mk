@@ -16,9 +16,6 @@
 
 $(call inherit-product, device/samsung/trltexx/full_trltexx.mk)
 
-# Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
-
 # Inherit common CM phone.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
