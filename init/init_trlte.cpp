@@ -1,5 +1,6 @@
 /*
    Copyright (c) 2013, The Linux Foundation. All rights reserved.
+   Copyright (c) 2018, The LineageOS Project. All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
@@ -28,14 +29,19 @@
  */
 
 #include <stdlib.h>
-#include <stdio.h>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 
-#include "vendor_init.h"
+#include <android-base/logging.h>
+#include <android-base/properties.h>
+
 #include "property_service.h"
-#include "log.h"
-#include "util.h"
+#include "vendor_init.h"
 
-#include "init_msm.h"
+#include "init_apq8084.h"
+
+using android::base::GetProperty;
+using android::init::property_set;
 
 void gsm_properties()
 {
@@ -43,41 +49,30 @@ void gsm_properties()
     property_set("ro.telephony.default_network", "9");
 }
 
-void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type)
-{
-    char platform[PROP_VALUE_MAX];
-    char bootloader[PROP_VALUE_MAX];
-    char device[PROP_VALUE_MAX];
-    char devicename[PROP_VALUE_MAX];
-    int rc;
-
-    UNUSED(msm_id);
-    UNUSED(msm_ver);
-    UNUSED(board_type);
-
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || !ISMATCH(platform, ANDROID_TARGET))
+void init_target_properties()
+    std::string platform = GetProperty("ro.board.platform", "");
+    if (platform != ANDROID_TARGET)
         return;
 
-    property_get("ro.bootloader", bootloader);
+    std::string bootloader = GetProperty("ro.bootloader", "");
 
-    if (strstr(bootloader, "N910G")) {
-        /* trltedt These values are taken from trltexx and edited for the 910G FIXME */
-        property_set("ro.build.fingerprint", "samsung/trltedt/trlte:6.0.1/MHC19J/N910GDTU1COL3:user/release-keys");
-        property_set("ro.build.description", "trltedt-user 6.0.1 MHC19J N910GDTU1COL3 release-keys");
-        property_set("ro.product.model", "SM-N910G");
-        property_set("ro.product.device", "trltedt");
+    if (bootloader.find("N910G") == 0) {
+        /* trltedt */
+        property_override_dual("ro.build.fingerprint", "samsung/trltedt/trlte:6.0.1/MHC19J/N910GDTU1COL3:user/release-keys");
+        property_override("ro.build.description", "trltedt-user 6.0.1 MHC19J N910GDTU1COL3 release-keys");
+        property_override_dual("ro.product.model", "SM-N910G");
+        property_override_dual("ro.product.device", "trltedt");
         gsm_properties();
-    } else {
+    } else if (bootloader.find("N910F") == 0) {
         /* trltexx */
-        property_set("ro.build.fingerprint", "samsung/trltexx/trltexx:6.0.1/MHC19J/N910FXXU1COL2:user/release-keys");
-        property_set("ro.build.description", "trltexx-user 6.0.1 MHC19J N910FXXU1COL2 release-keys");
-        property_set("ro.product.model", "SM-N910F");
-        property_set("ro.product.device", "trltexx");
+        property_override_dual("ro.build.fingerprint", "samsung/trltexx/trltexx:6.0.1/MHC19J/N910FXXU1COL2:user/release-keys");
+        property_override("ro.build.description", "trltexx-user 6.0.1 MHC19J N910FXXU1COL2 release-keys");
+        property_override_dual("ro.product.model", "SM-N910F");
+        property_override_dual("ro.product.device", "trltexx");
         gsm_properties();
     }
 
-    property_get("ro.product.device", device);
-    strlcpy(devicename, device, sizeof(devicename));
-    INFO("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
+    std::string device = GetProperty("ro.product.device", "");
+    LOG(INFO) << "Found bootloader id " << bootloader <<  " setting build properties for "
+        << device <<  " device" << std::endl;
 }
