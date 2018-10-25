@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2014 The CyanogenMod Project
+# Copyright (c) 2018, The LineageOS Project.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,5 +23,5 @@ $(call inherit-product-if-exists, vendor/samsung/trltexx/trltexx-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/trltexx/overlay
 
-# common trlte
+# Trlte-common
 $(call inherit-product, device/samsung/trlte-common/trlte.mk)
