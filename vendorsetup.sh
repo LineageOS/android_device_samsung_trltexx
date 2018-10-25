@@ -1,2 +1,1 @@
-add_lunch_combo cm_trltexx-eng
-
+add_lunch_combo lineage_trltexx-userdebug
